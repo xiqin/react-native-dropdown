@@ -1,8 +1,8 @@
 # react-native-dropdown
 
 ## Demo
-![](http://https://raw.githubusercontent.com/txqsimon/react-native-Dropdown/master/demo/simple.gif)
-![](http://https://raw.githubusercontent.com/txqsimon/react-native-Dropdown/master/demo/multiple.gif)
+![](https://raw.githubusercontent.com/txqsimon/react-native-Dropdown/master/demo/simple.gif)
+![](https://raw.githubusercontent.com/txqsimon/react-native-Dropdown/master/demo/multiple.gif)
 
 ## Getting started
 
