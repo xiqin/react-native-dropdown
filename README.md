@@ -1,16 +1,19 @@
 # react-native-dropdown
 
+## Demo
+![](http://https://raw.githubusercontent.com/txqsimon/react-native-Dropdown/master/demo/simple.gif)
+![](http://https://raw.githubusercontent.com/txqsimon/react-native-Dropdown/master/demo/multiple.gif)
 
 ## Getting started
 
 
-`$ npm install react-native-dropdown --save`
+`$ npm install react-native-dropdown-component --save`
 
 
 ### Mostly automatic installation
 
 
-`$ react-native link react-native-dropdown`
+`$ react-native link react-native-dropdown-component`
 
 
 ### Manual installation
@@ -22,7 +25,7 @@
 
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-dropdown` and add `RNDropdown.xcodeproj`
+2. Go to `node_modules` ➜ `react-native-dropdown-component` and add `RNDropdown.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNDropdown.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
@@ -35,12 +38,12 @@
   - Add `new RNDropdownPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
       ```
-      include ':react-native-dropdown'
-      project(':react-native-dropdown').projectDir = new File(rootProject.projectDir,     '../node_modules/react-native-dropdown/android')
+      include ':react-native-dropdown-component'
+      project(':react-native-dropdown-component').projectDir = new File(rootProject.projectDir,     '../node_modules/react-native-dropdown-component/android')
       ```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
       ```
-   compile project(':react-native-dropdown')
+   compile project(':react-native-dropdown-component')
       ```
 
 
@@ -58,8 +61,7 @@
 
 ## Usage
 ```javascript
-import RNDropdown from 'react-native-dropdown';
-
+import RNDropdown from 'react-native-dropdown-component';
 
 const Menus = [
   {
@@ -81,6 +83,7 @@ const Menus = [
     ],
   },
 ];
+
 <RNDropdown
   menus={Menus}
   onSelected={(result) => {console.log(result)}}
