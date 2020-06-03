@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { NativeModules, Dimensions, PixelRatio, Animated, View, Text, TouchableOpacity, ART, ScrollView } from 'react-native';
+import { NativeModules, Dimensions, PixelRatio, Animated, View, Text, TouchableOpacity, ART, ScrollView, StyleSheet } from 'react-native';
 
 const { RNDropdown } = NativeModules;
 
@@ -9,9 +9,9 @@ const transPxToDp = (elementPx) => {
   return PixelRatio.roundToNearestPixel(elementPx * width / UIWidth);
 }
 const { Surface, Group, Shape } = ART;
-const MODAL_HEIGHT = transPxToDp(600);
+const MODAL_HEIGHT = transPxToDp(400);
 
-class RNDropdown extends PureComponent {
+class Dropdown extends PureComponent {
   state = {
     menus: [],
     curMenu: {
@@ -84,7 +84,7 @@ class RNDropdown extends PureComponent {
   }
 
   // select or cancel item
-  triggerItem = (key) => {
+  triggerItem = (key, name) => {
     const { multiple } = this.props;
     const { curMenu } = this.state;
     const index = curMenu.activeItems.indexOf(key);
@@ -139,7 +139,7 @@ class RNDropdown extends PureComponent {
     Animated.timing(
       this.state.listItemHeight,
       {
-        toValue: value,
+        toValue,
         duration: 300,
       }
     ).start();
@@ -233,25 +233,25 @@ class RNDropdown extends PureComponent {
                 }
               </ScrollView>
               {
-                multiple ? (
-                  <View style={styles.operateView}>
-                    <TouchableOpacity
-                      activeOpacity={0.95}
-                      style={[styles.operateBtn, styles.cancelBtn]}
-                      onPress={() => this.handleCancel()}
-                    >
-                      <Text style={styles.btnText}>{cancelText || '取消'}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      activeOpacity={0.95}
-                      style={[styles.operateBtn, styles.okBtn]}
-                      onPress={() => this.handleCallback()}
-                    >
-                      <Text style={styles.btnText}>{okText || '确认'}</Text>
-                    </TouchableOpacity>
-                  </View>
-                ) : null
-              }
+                  multiple ? (
+                    <View style={styles.operateView}>
+                      <TouchableOpacity
+                        activeOpacity={0.95}
+                        style={[styles.operateBtn, styles.cancelBtn, cancelTextStyle]}
+                        onPress={() => this.handleCancel()}
+                      >
+                        <Text style={[styles.btnText, cancelTextStyle]}>{cancelText || 'Cancel'}</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        activeOpacity={0.95}
+                        style={[styles.operateBtn, styles.okBtn, okTextStyle]}
+                        onPress={() => this.handleCallback()}
+                      >
+                        <Text style={[styles.btnText, okTextStyle]}>{okText || 'OK'}</Text>
+                      </TouchableOpacity>
+                    </View>
+                  ) : null
+                }
             </Animated.View>
             </View>
           ) : null
@@ -261,7 +261,7 @@ class RNDropdown extends PureComponent {
   }
 }
 
-export default RNDropdown;
+export default Dropdown;
 
 const styles = StyleSheet.create({
   dropdown: {
