@@ -1,5 +1,5 @@
 {
-  "name": "react-native-dropdown",
+  "name": "react-native-dropdown-component",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,11 @@
     "react-native": "0.61.4"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "react",
+    "native",
+    "dropdown",
+    "react-component"
   ],
   "author": "",
   "license": "",
